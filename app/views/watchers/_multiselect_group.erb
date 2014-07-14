@@ -25,6 +25,10 @@ end %>
   <input type="submit" value="Unselect All" onclick="return uncheckAll('issue[watcher_user_ids][]')" />
 </p>
 
+<% end %>
+<%= l(:watchers_select_multiple) unless User.current.groups.size > 0%>
+<br>
+
 <% if controller.action_name == "show" %>
   <% watchers.each do |user| %>
     <% c = issue.watched_by?(user) %>
@@ -39,4 +43,4 @@ end %>
 <%# content_for :header_tags do %>
 
 <%# end %>
-<% end %>
+
