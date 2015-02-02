@@ -29,7 +29,7 @@ end %>
 <%= l(:watchers_select_multiple) unless User.current.groups.size > 0%>
 <br>
 
-<% if controller.action_name == "show" %>
+<% unless controller.action_name == "new" %>
   <% watchers.each do |user| %>
     <% c = issue.watched_by?(user) %>
     <%= label_tag '', class: "floating", id: "issue_watcher_user_ids_#{user.id}" do %>
